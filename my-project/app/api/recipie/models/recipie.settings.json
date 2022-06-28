@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipies",
+  "info": {
+    "name": "Recipie"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Body": {
+      "type": "string"
+    },
+    "Test": {
+      "type": "boolean"
+    }
+  }
+}
