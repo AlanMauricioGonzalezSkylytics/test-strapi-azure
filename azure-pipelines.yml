@@ -5,6 +5,12 @@
 trigger:
 - production
 
+# Builds are disabled for PRs
+pr:
+  branches:
+    exclude:
+    - '*'
+
 resources:
 - repo: self
 
@@ -28,6 +34,15 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+
+
+    - task: Docker@2
+      displayName: Login to ACR
+      inputs:
+        command: login
+        containerRegistry: $(dockerRegistryServiceConnection)
+
+
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
